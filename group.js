@@ -16,19 +16,12 @@ function addGroup() {
 }
 
 function displayGroupInfo(members, grpName) {
-  let text;
-  let h1 = document.createElement("H1");
-  text = document.createTextNode("Your group name is: " + grpName);
-  h1.appendChild(text);
-  document.getElementById("group-info").appendChild(h1);
-  let p = document.createElement("span");
-  text = document.createTextNode("Members of the group are: ");
-  p.appendChild(text);
-  document.getElementById("group-info").appendChild(p);
+  let html = `<h1>${grpName}</h1>`;
+  document.getElementById("group-info").insertAdjacentHTML("beforeend", html);
+  html = `<span>Members of the group are: </span>`;
+  document.getElementById("group-info").insertAdjacentHTML("beforeend", html);
   for (let i = 0; i < members.length; i++) {
-    let span = document.createElement("SPAN");
-    text = document.createTextNode(members[i] + ", ");
-    span.appendChild(text);
-    document.getElementById("group-info").appendChild(span);
+    html = `<span>${members[i]},</span>`;
+    document.getElementById("group-info").insertAdjacentHTML("beforeend", html);
   }
 }
